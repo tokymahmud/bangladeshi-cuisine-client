@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProviders';
 
 const Login = () => {
-  const {singIn} =useContext(AuthContext);
+  const {singIn, singinWithGoogle, singinWithGithub} =useContext(AuthContext);
 
 
     const handleLogin =event =>{
@@ -24,6 +24,25 @@ const Login = () => {
 
 
     }
+   const  handleGoogleSingin =()=>{
+    singinWithGoogle()
+    .then (result=>{
+      const loggedUser =result.user;
+      console.log(loggedUser);
+    })
+    .catch(error=>{
+      console.log(error)
+    }) }
+   const handleGitSingin =()=>{
+    singinWithGithub()
+    .then (result=>{
+      const loggedUser =result.user;
+      console.log(loggedUser);
+    })
+    .catch(error=>{
+      console.log(error)
+    })}
+  
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
@@ -51,6 +70,12 @@ const Login = () => {
         <div className="form-control mt-6">
           <button className="btn btn-primary">Login</button>
         </div>
+        <div className='flex space-x-4 '>
+        <button onClick={handleGoogleSingin} className="btn btn-primary gap-4 ">Google</button>
+        <button onClick={handleGitSingin} className="btn btn-primary gap-4 p-3">Git Hub</button>
+
+
+        </div>
       </form>
       <Link to='/register'>
       <button className="btn btn-link">Want to explore Bangladeshi Cuisine?</button>
@@ -62,5 +87,6 @@ const Login = () => {
         </div>
     );
 };
+
 
 export default Login;
