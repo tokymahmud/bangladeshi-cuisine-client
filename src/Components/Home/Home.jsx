@@ -3,7 +3,8 @@ import React from 'react';
 const Home = () => {
     return (
         <div>
-            <div className='flex'>
+         <div>
+         <div className='flex'>
                 <h1 className='font-bold text-2xl'>Love for <br></br> <span className='text-orange-300 underline '>Food</span></h1>
                 <div className="h-96 carousel carousel-vertical rounded-box">
   <div className="carousel-item h-full">
@@ -26,6 +27,19 @@ const Home = () => {
   </div> 
   <div className="carousel-item h-full">
     <img src="/images/stock/photo-1601004890684-d8cbf643f5f2.jpg" />
+  </div>
+</div>
+            </div>
+         </div>
+            <div>
+            <div className="card w-96 bg-base-100 shadow-xl image-full">
+  <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+  <div className="card-body">
+    <h2 className="card-title">Shoes!</h2>
+    <p>If a dog chews shoes whose shoes does he choose?</p>
+    <div className="card-actions justify-end">
+      <button className="btn btn-primary">Buy Now</button>
+    </div>
   </div>
 </div>
             </div>
