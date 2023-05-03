@@ -7,6 +7,8 @@ const Home = () => {
     fetch("https://bangladeshi-cuisine-server-tokymahmud.vercel.app/chef")
     .then((response)=>response.json())
     .then((data)=>setChefInfo(data));
+    
+
 
   },[]);
  
@@ -30,7 +32,9 @@ const Home = () => {
             </div>
          </div>
             <div>
-            {chefInfo[0]?.cis?.map((ci) => (
+            {chefInfo.map((ci) => (
+                
+
               <div key={ci?.id} >
             <div className="card w-96 bg-base-100 shadow-xl image-full">
   <figure><img src={ci?.picture_url} alt="Shoes" /></figure>
