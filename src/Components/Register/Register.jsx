@@ -1,8 +1,30 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProviders';
+import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
+import app from '../../firebase/firebase.config';
+// import app from '../firebase/firebase.config';
+
+const auth =getAuth(app);
 
 const Register = () => {
-    const handleRegister =event=>{
+
+    const { createUser} = useContext(AuthContext);
+    console.log(createUser);
+
+    const aa= (email,password)=>{
+        createUserWithEmailAndPassword(auth,email,password)
+        .then(result =>{
+            const loggedUser =result.user;
+            console.log(loggedUser);
+        })
+        .catch(error=>{
+            console.log(error)
+        })
+
+    }
+
+    const handleRegister =async(event)=>{
         event.preventDefault();
 
         const form = event.target;
@@ -12,6 +34,9 @@ const Register = () => {
         const password = form.password.value;
         console.log(email,password,name,img);
 
+        
+        aa (email,password)
+      
 
     }
     return (
@@ -43,9 +68,7 @@ const Register = () => {
             <span className="label-text">Password</span>
           </label>
           <input type="password" name='password' placeholder="password" className="input input-bordered" required />
-          <label className="label">
-            <Link to='/login' className="label-text-alt link link-hover">Already have an account?</Link>
-          </label>
+         
         </div>
         <div className="form-control">
           <label className="label">
@@ -53,10 +76,14 @@ const Register = () => {
           </label>
           <input type="text" name='img' placeholder="Image URL" className="input input-bordered" required />
         </div>
-        <div className="form-control mt-6">
-          <button className="btn btn-primary">Register</button>
-        </div>
+        <button type='submit' className="btn btn-primary">Register</button>
+
+         
       </form>
+          <label className="label">
+            <Link to='/login' className="label-text-alt link link-hover">Already have an account?</Link>
+          </label>
+        
     </div>
   </div>
 </div>
