@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 
 const Home = () => {
@@ -20,6 +21,8 @@ const Home = () => {
           <h1 className='font-bold text-2xl'>Love for <br></br> <span className='text-orange-300 underline '>Food?</span></h1>
                 <br></br>
                 <p>We are seeking a talented and experienced cook/chef. The successful candidate will<br></br> be responsible for preparing a variety of fast-food items, ...</p>
+                <br></br>
+                <p>Want to be a chef?</p>
 
          </div>
                 
@@ -37,6 +40,7 @@ const Home = () => {
 </div>
             </div>
          </div>
+         <h1 className='text-center '>Available Chefs</h1>
             <div className='grid grid-cols-3 gap-4 mt-6'>
             {chefInfo.map((ci) => (
                 
@@ -51,7 +55,9 @@ const Home = () => {
     <p>Likes:{ci?.likes}</p>
 
     <div className="card-actions justify-end">
-      <button className="btn btn-primary">View Recipes </button>
+    
+
+      <button  type="button" className="btn btn-primary"><Link to={`/chef/${ci.id}`}>View Recipes</Link> </button>
     </div>
   </div>
 </div>
@@ -59,20 +65,33 @@ const Home = () => {
   ))}
             </div>
 
-{/* <div >
-        {chefInfo[0]?.cis?.map((ci) => (
-          <div key={ci?.id} >
-            <h2>{ci?.name}</h2>
-            <p>{ci?.years_of_experience}</p>
-            <p>{ci?.num_recipes}</p>
-            <p>{ci?.likes}</p>
-           
-            // <Link to={`/cis/${ci?.id}`}>
-            //   <button>Details</button>
-            // </Link>
-          </div>
-        ))}
-      </div> */}
+<div className='mt-6'>
+<h1 className='text-center '>Available Services</h1>
+<div className="drawer">
+  <input id="my-drawer" type="checkbox" className="drawer-toggle" />
+  <div className="drawer-content">
+    
+    <label htmlFor="my-drawer" className="btn btn-primary drawer-button">Click Here</label>
+  </div> 
+  <div className="drawer-side">
+    <label htmlFor="my-drawer" className="drawer-overlay"></label>
+    <ul className="menu p-4 w-80 bg-base-100 text-base-content">
+      <li><a>Find a place?</a></li>
+      <li><a>Seek Chef?</a></li>
+      
+    </ul>
+  </div>
+</div>
+
+        
+      </div>
+      <div >
+      <h1 className='text-center '>Drop CV for chef!</h1>
+
+
+      <input type="file" className="file-input w-full max-w-xs text-center" />
+
+      </div>
         </div>
     );
 
