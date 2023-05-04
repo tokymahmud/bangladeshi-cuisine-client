@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProviders';
 import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
@@ -9,6 +9,8 @@ const auth =getAuth(app);
 
 const Register = () => {
 
+  const [error, setError] =useState('');
+
     const { createUser} = useContext(AuthContext);
     console.log(createUser);
 
@@ -17,9 +19,11 @@ const Register = () => {
         .then(result =>{
             const loggedUser =result.user;
             console.log(loggedUser);
+            setError('')
         })
         .catch(error=>{
-            console.log(error)
+            console.log(error.message)
+            setError(error.message)
         })
 
     }
@@ -83,6 +87,7 @@ const Register = () => {
           <label className="label">
             <Link to='/login' className="label-text-alt link link-hover">Already have an account?</Link>
           </label>
+          <p className='text-red-600	' >{error}</p>
         
     </div>
   </div>
