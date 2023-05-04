@@ -2,6 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 
 const ChefRecipies = () => {
+
+    // const Recipe = () => {
+    //     const [showToast, setShowToast] = useState(false);
+      
+        // const handleFavouriteBtn = () => {
+        //   // Add recipe to favorites
+        //   setShowToast(true);
+        // };
   
  
 
@@ -18,7 +26,7 @@ const ChefRecipies = () => {
             <div className="toast toast-center	">
   <div className="alert alert-info">
     <div>
-      <span>Added to favourite</span>
+      <span>Added to favourite.</span>
       <button className="btn btn-primary">disable</button>
 
     </div>
@@ -59,6 +67,19 @@ const ChefRecipies = () => {
     <p><span className='underline underline-offset-1 text-orange-400'>cooking method:  </span>{cis?.method}</p>
     <p><span className='underline underline-offset-1 text-orange-400'>Rating:  </span>{cis?.rating}</p>
     <button className="btn btn-warning" onClick={handleFavouriteBtn}>Favourite</button>
+
+    {/* Recipe content
+    <button onClick={handleFavouriteBtn}>Add to Favorites</button>
+      {showToast && (
+        <div className="toast toast-center">
+          <div className="alert alert-info">
+            <div>
+              <span>Added to favorite. The recipe is your favorite.</span>
+              <button className="btn btn-primary" onClick={() => setShowToast(false)}>Disable</button>
+            </div>
+          </div>
+        </div>
+      )} */}
 
 
     
