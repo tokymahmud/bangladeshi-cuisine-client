@@ -71,6 +71,8 @@ const Register = () => {
           <label className="label">
             <span className="label-text">Password</span>
           </label>
+          {/* /(?=.*[a-z])(?=.*[A-Z])/.test(password)
+ */}
           <input type="password" name='password' placeholder="password" className="input input-bordered" required />
          
         </div>
