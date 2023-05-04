@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProviders';
 
 const Login = () => {
   const {singIn, singinWithGoogle, singinWithGithub} =useContext(AuthContext);
+  const navigate =useNavigate();
 
 
     const handleLogin =event =>{
@@ -17,6 +18,7 @@ const Login = () => {
         .then(result=>{
           const loggedUser=result.user;
           console.log(loggedUser)
+          navigate('/')
         })
         .catch(error=>{
           console.log(error)
