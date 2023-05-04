@@ -12,6 +12,19 @@ const ChefRecipies = () => {
         const ChefData =details.find(details=>details.id==id);
         setChefId(ChefData);
     },[])
+
+    const handleFavouriteBtn = ()=>{
+        
+            <div className="toast">
+  <div className="alert alert-info">
+    <div>
+      <span>Added to favourite</span>
+    </div>
+  </div>
+</div>
+        
+
+    }
     
     return (
         <div>
@@ -43,9 +56,12 @@ const ChefRecipies = () => {
     <p><span className='underline underline-offset-1 text-orange-400'>Ingredients:  </span>{cis?.ingredients}</p>
     <p><span className='underline underline-offset-1 text-orange-400'>cooking method:  </span>{cis?.method}</p>
     <p><span className='underline underline-offset-1 text-orange-400'>Rating:  </span>{cis?.rating}</p>
+    <button className="btn btn-warning" onClick={handleFavouriteBtn}>Favourite</button>
+
 
     
                  </div>
+
 </div>
 
                 </div>
