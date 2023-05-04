@@ -15,10 +15,12 @@ const ChefRecipies = () => {
 
     const handleFavouriteBtn = ()=>{
         
-            <div className="toast">
+            <div className="toast toast-center	">
   <div className="alert alert-info">
     <div>
       <span>Added to favourite</span>
+      <button className="btn btn-primary">disable</button>
+
     </div>
   </div>
 </div>

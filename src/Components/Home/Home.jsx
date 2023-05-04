@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import LazyLoad from 'react-lazy-load';
 import { Link } from 'react-router-dom';
 
 
@@ -47,7 +48,13 @@ const Home = () => {
 
               <div key={ci?.id} >
             <div className="card w-96 bg-base-100 shadow-xl image-full">
-  <figure><img src={ci?.picture_url} alt="Shoes" /></figure>
+  <figure>
+    {/* lazyload added */}
+    <LazyLoad threshold={0.95} height={262}>
+    <img src={ci?.picture_url} alt="Shoes" />
+
+    </LazyLoad>
+    </figure>
   <div className="card-body">
     <h2 className="card-title">{ci?.name}</h2>
     <p>Experience:{ci?.years_of_experience}</p>
